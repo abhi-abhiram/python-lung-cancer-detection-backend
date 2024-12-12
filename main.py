@@ -2,12 +2,14 @@ import os
 import json
 import tensorflow as tf
 from flask import Flask, request, jsonify
+from flask_cors import CORS  # Import Flask-CORS
 from tensorflow.keras.models import load_model
 import numpy as np
 from PIL import Image
 import io
 
 app = Flask(__name__)
+CORS(app)  # Enable CORS for all routes and origins
 
 # Disable GPU
 os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
